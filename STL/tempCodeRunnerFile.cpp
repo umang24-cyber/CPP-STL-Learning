@@ -1,0 +1,1 @@
+ ls.emplace_front(1);

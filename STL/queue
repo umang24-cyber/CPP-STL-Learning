@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+    void explainqueue()
+    {
+        queue<int> q;
+        q.push(1);
+        q.push(2);
+        q.emplace(4);
+
+        q.back() += 5;
+        cout<<q.back()<<endl;
+        cout<<q.front()<<endl;
+        q.pop();
+        cout<<q.front();
+    }
+};
+
+int main(){
+    Solution obj;
+    obj.explainqueue();
+}
