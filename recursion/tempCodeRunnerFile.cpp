@@ -1,0 +1,1 @@
+printNums(current+1 , n);
