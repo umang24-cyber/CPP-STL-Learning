@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// Doubly Linked List Implementation in C++
+// deletion of head, tail, kth element and a given node in doubly linked list
 class Node{
 public:
     int data;
@@ -96,16 +97,37 @@ Node* removeKthelement(Node* head, int k){
     delete kNode;
     return head;
 } 
+
+void deleteNode(Node* temp){
+    Node* prev = temp->back;
+    Node* front = temp->next;   
+
+    if(front==nullptr){
+        prev->next = nullptr;   
+        temp->back = nullptr;
+        free(temp);
+        return;
+    }
+    prev->next = front;
+    front->back = prev; 
+
+    temp->next = nullptr;
+    temp->back = nullptr;   
+    free(temp); 
+}
 int main(){
     vector<int> arr = {12, 5, 8, 7, 4};
     Node* head = convertArr2DLL(arr);
-    head = removeKthelement(head, 2);
-    cout << "Original List: ";
+     cout << "Original List: ";
+    print(head);
+    cout << endl;   
+    deleteNode(head->next->next);
     print(head);
     cout << endl;
-
+    head = removeKthelement(head, 2);
+    print(head);
+    cout << endl;
     head = deleteHead(head);
-
     cout << "After Deletion of Head: ";
     print(head);
     cout << endl;
